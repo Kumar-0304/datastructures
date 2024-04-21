@@ -1,0 +1,33 @@
+queue=[]
+def enqueue():
+    if len(queue)==limit:
+        print("queue is full")
+    else:
+        number=int(input("entre number:"))
+        queue.append(number)
+
+def dequeue():
+    if not queue:
+        print("queue is empty")
+    else:
+        queue.pop(0)
+
+
+
+def display():
+    print(queue)
+limit=int(input("entre max length of queue:"))
+while True:
+    print("entre operation 1.add 2.remove 3.display 5.exit")
+    choice=int(input("entre your choice:"))
+    if choice==1:
+        enqueue()
+    elif choice==2:
+        dequeue()
+    elif choice==3:
+        display()
+
+    elif choice==5:
+        break
+    else:
+        print("entre correct choice")
