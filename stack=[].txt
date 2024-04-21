@@ -1,0 +1,32 @@
+stack=[]
+def push():
+    if len(stack)==limit:
+        print("stack is full")
+    else:
+        number = int(input("entre number:"))
+        print(stack)
+        stack.append(number)
+        print(len(stack))
+def pull():
+    if len(stack)==0:
+        print("stack is empty")
+    else:
+        print(stack)
+        stack.pop()
+        print(stack)
+limit=int(input("entre the max length of stack:"))
+while True:
+    print("entre your choice 1.push 2.pull 3.exit")
+    choice = int(input("entre your choice:"))
+    if choice == 1:
+
+        push()
+    elif choice == 2:
+        pull()
+    elif choice==3:
+        break
+
+    else:
+        print("entre correct choice")
+
+
