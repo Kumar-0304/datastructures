@@ -1,0 +1,35 @@
+import heapq
+lis=[]
+heapq.heappush(lis,10)
+heapq.heappush(lis,2)
+heapq.heappush(lis,8)
+heapq.heappush(lis,1)
+heapq.heappush(lis,100)
+heapq.heappush(lis,200)
+#return smallest value and also delete the node.Maintaines heap properties
+print(heapq.heappop(lis))
+#heapify method will convert the given list in to min heap.
+lis2=[4,7,8,900,555,222,1,2]
+heapq.heapify(lis2)
+print(lis2)
+#heappushpop will first push the given item in to the list and then it will pop the lowest number.
+a=heapq.heappushpop(lis2,89)
+print(lis2)
+print(a)
+#heapreplace method will first pop the lowest number and then push the item
+b=heapq.heapreplace(lis2,1000)
+print(b)
+print(lis2)
+b3=heapq.heapreplace(lis2,1001)
+b2=heapq.heapreplace(lis2,1002)
+b1=heapq.heapreplace(lis2,1003)
+print(b1)
+print(b2)
+print(b3)
+print(lis2)
+c=heapq.nsmallest(3,lis2)
+print(c)
+z=heapq.nlargest(2,lis2)
+print(z)
+print(lis2)
+
