@@ -1,0 +1,147 @@
+#using adjacency list
+graph={}
+def add_node(n):
+    if n in graph:
+        print("node present already")
+    else:
+        graph[n]=[]
+def add_edge_undirected(v1,v2):
+    if v1 not in graph:
+        print(v1, "not present ")
+    elif v1 not in graph:
+        print(v2, "not present ")
+    else:
+        graph[v1].append(v2)
+        graph[v2].append(v1)
+def add_edge_directed(v1,v2):
+    if v1 not in graph:
+        print(v1, "not present ")
+    elif v1 not in graph:
+        print(v2, "not present ")
+    else:
+        graph[v1].append(v2)
+def add_edge_weighted_undirected(v1,v2,cost):
+    if v1 not in graph:
+        print(v1, "not present ")
+    elif v2 not in graph:
+        print(v2, "not present ")
+    else:
+        list1=[v1,cost]
+        list2=[v2,cost]
+        graph[v1].append(list2)
+        graph[v2].append(list1)
+def add_edge_weighted_directed(v1,v2,cost):
+    if v1 not in graph:
+        print(v1, "not present ")
+    elif v2 not in graph:
+        print(v2, "not present ")
+    else:
+        list1=[v2,cost]
+        graph[v1].append(list1)
+def delete_node(v):
+    if v not in graph:
+        print(v,"not present..")
+    else:
+        graph.pop(v)
+        for i in graph:
+            list1=graph[i]
+            if v in list1:
+                list1.remove(v)
+def deletenode_weighted_undirected_directed(v):
+    if v not in graph:
+        print(v,"not present..")
+    else:
+        graph.pop(v)
+        for i in graph:
+            index1=graph[i]
+            for j in index1:
+                if v==j[0]:
+                    index1.remove(j)
+                    break
+def deleteedge_unweighted_undirected(v1,v2):
+    if v1 not in graph:
+        print(v1, "not present ")
+    elif v1 not in graph:
+        print(v2, "not present ")
+    else:
+        if v2 in graph[v1]:
+            graph[v1].remove(v2)
+            graph[v2].remove(v1)
+def deleteedge_unweighted_directed(v1,v2):
+    if v1 not in graph:
+        print(v1, "not present ")
+    elif v1 not in graph:
+        print(v2, "not present ")
+    else:
+        if v2 in graph[v1]:
+            graph[v1].remove(v2)
+def deleteedge_weighted_undirected(v1,v2,cost):
+    if v1 not in graph:
+        print(v1, "not present ")
+    elif v1 not in graph:
+        print(v2, "not present ")
+    else:
+        temp=[v1,cost]
+        temp1=[v2,cost]
+        if temp1 in graph[v1]:
+            graph[v1].remove(temp1)
+            graph[v2].remove(temp)
+#unweighted
+def dfsrecursion(node,visited,graph):
+    if node not in graph:
+        print("node not found in graph..")
+    elif node not in visited:
+        print(node)
+        visited.add(node)
+        for i in graph[node]:
+            dfsrecursion(i,visited,graph)
+def dfsiteration(node,graph):
+    visited=set()
+    if node not in graph:
+        print("node not found in graph..")
+        return
+    stack=[]
+    stack.append(node)
+    while stack:
+        current=stack.pop()
+        if current not in visited:
+            print(current)
+            visited.add(current)
+            for i in graph[current]:
+                stack.append(i)
+
+
+#weighted
+def dfsrecursion2(node,visited,graph):
+    if node not in graph:
+        print("node not found in graph..")
+    elif node not in visited:
+        print(node)
+        visited.add(node)
+        for i in graph[node]:
+            dfsrecursion2(i[0],visited,graph)
+def dfsiteration2(node,graph):
+    visited=set()
+    if node not in graph:
+        print("node not found in graph..")
+    stack=[]
+    stack.append(node)
+    while stack:
+        current=stack.pop()
+        if current not in visited:
+            visited.add(current)
+            print(current)
+            for i in graph[current]:
+                stack.append(i[0])
+
+
+
+
+
+
+
+
+
+
+
+visited=set()
