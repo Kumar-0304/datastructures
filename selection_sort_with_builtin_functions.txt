@@ -1,0 +1,7 @@
+#with built in functions
+l=[1,66,77,33,2,44]
+for i in range(len(l)):
+    m_val=min(l[i:])
+    m_ind=l.index(m_val,i)
+    l[i],l[m_ind]=l[m_ind],l[i]
+print(l)
