@@ -1,0 +1,9 @@
+#with out built in functions
+l=[1,22,88,99,55,3,6]
+for i in range(len(l)):
+    for j in range(i+1,len(l)):
+        m_ind=i
+        if l[i]>l[j]:
+            m_ind=j
+        l[i],l[m_ind]=l[m_ind],l[i]
+print(l)
