@@ -1,0 +1,43 @@
+#BUBBLE SORT (ASCENDING ORDER)
+l=[]
+num=int(input("entre how many numbers you want:"))
+print("entre the number:")
+for k in range(num):
+    l.append(int(input()))
+for i in range(len(l)-1):
+    for j in range(len(l)-1-i):
+        if l[j]>l[j+1]:
+            l[j],l[j+1]=l[j+1],l[j]
+print(l)
+OUT PUT:
+entre how many numbers you want:7
+entre the number:
+200
+1
+22
+33
+404
+77
+11
+-------------------------------------------------------------
+===============================================
+#BUBBLE SORT (DESCENDING ORDER)
+l=[]
+num=int(input("entre how many numbers you want:"))
+print("entre the number:")
+for k in range(num):
+    l.append(int(input()))
+for i in range(len(l)-1):
+    for j in range(len(l)-1-i):
+        if l[j]<l[j+1]:
+            l[j],l[j+1]=l[j+1],l[j]
+print(l)
+ OUT PUT:
+entre how many numbers you want:5
+entre the number:
+1
+3
+7
+0
+33
+[33, 7, 3, 1, 0]
