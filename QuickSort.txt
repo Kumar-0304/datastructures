@@ -1,0 +1,25 @@
+#pivot element at last
+def pivot(list1,first,last):
+    pivot_element=list1[last]
+    left=first
+    right=last-1
+    while True:
+        while left<=right and list1[left]<=pivot_element:
+            left=left+1
+        while left<=right and list1[right]>=pivot_element:
+            right-=1
+        if left>right:
+            break
+        else:
+            list1[left],list1[right]=list1[right],list1[left]
+    list1[last],list1[left]=list1[left],list1[last]
+    return left
+def quick_sort(list1,first,last):
+    if first<last:
+        p = pivot(list1, first, last)
+        quick_sort(list1, first, p - 1)
+        quick_sort(list1, p + 1, last)
+list1=[1,100,99,9,87,0,111]
+n=len(list1)-1
+quick_sort(list1,0,n)
+print(list1)
